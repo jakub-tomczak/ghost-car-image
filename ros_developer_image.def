@@ -1,0 +1,37 @@
+Bootstrap: docker
+From:  osrf/ros:melodic-desktop-full-bionic
+
+%post
+	apt update && apt install -y --no-install-recommends apt-utils dialog
+	apt update
+
+	# install gazeboo - https://github.com/osrf/docker_images/blob/00d02282c2393ccde655fa0c333b4410a10b3985/gazebo/10/ubuntu/bionic/gzserver10/Dockerfile
+	
+	# setup timezone
+	echo 'Etc/UTC' > /etc/timezone && \
+		ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
+		apt update && apt install -q -y tzdata && rm -rf /var/lib/apt/lists/*
+	## install packages
+	apt update && apt-get install -q -y \
+		dirmngr gnupg2 lsb-release && rm -rf /var/lib/apt/lists/*
+	## setup keys
+	 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2486D2DD83DB69272AFE98867170598AF249743
+	## setup sources.list
+	. /etc/os-release \
+		&& echo "deb http://packages.osrfoundation.org/gazebo/$ID-stable `lsb_release -sc` main" > /etc/apt/sources.list.d/gazebo-latest.list
+
+	## install gazebo packages
+	apt update && apt install -q -y gazebo9=9.8.0-1* && rm -rf /var/lib/apt/lists/*
+	
+%files
+	# copy file that starts gazeboo
+	./gzserver_entrypoint.sh /
+
+%runscript
+	# run gazeboo server
+	echo 'Setting up gazeboo environment'
+	/gzserver_entrypoint.sh
+	
+	echo 'Starting gazeboo'
+	gazeboo
+
