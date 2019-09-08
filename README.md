@@ -8,7 +8,7 @@ The repository contains definitions of images for Docker and Singularity. Docker
 ###  Docker
 Building
 
-    sudo docker build --tag ghost-racer
+    sudo docker build --tag ghost-racer .
 Running
 
     docker run -it --rm ghost-racer
