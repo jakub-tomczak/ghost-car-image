@@ -2,7 +2,7 @@
 
 ## Contents of repository
 
-The repository contains definitions of images for Docker and Singularity. Docker image may be pulled directly from [DockerHub](https://hub.docker.com/r/jakubtomczak/ghost-car "DockerHub").
+The repository contains definitions of images for Docker and Singularity. Docker image may be pulled directly from [DockerHub](https://hub.docker.com/r/jakubtomczak/ghost-racer "DockerHub").
 
 ## Building images
 ###  Docker
