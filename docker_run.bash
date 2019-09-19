@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# directory with ghost-racer repository in the host
 ghost_racer_root_dir=$1
+# directory with ghost-racer repository in the container
 docker_ghost_racer_root_dir=/home/ghost/ghost-racer
 
 if [ -z $1 ]; then
+    # if the first argument is not set
+    # treat the current working directory as the ghost-racer's sources dir
     ghost_racer_root_dir=$(pwd)
 fi
 
