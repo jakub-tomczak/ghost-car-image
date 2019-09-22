@@ -9,6 +9,7 @@ RUN apt-get -y install pkg-config unzip ffmpeg qtbase5-dev nano tmux gdb valgrin
 RUN apt-get -y install python-dev python-pip
 RUN apt-get -y install ros-melodic-ackermann-msgs
 RUN pip install rospkg
+RUN pip install gym
 RUN apt-get clean
 
 RUN useradd -ms /bin/bash ${user}
