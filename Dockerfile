@@ -8,6 +8,8 @@ RUN apt-get install -y --no-install-recommends apt-utils dialog sudo
 RUN apt-get -y install pkg-config unzip ffmpeg qtbase5-dev nano tmux gdb valgrind
 RUN apt-get -y install python-dev python-pip
 RUN apt-get -y install ros-melodic-ackermann-msgs
+RUN pip install keras-rl
+RUN pip install tensorflow
 RUN pip install rospkg
 RUN pip install gym
 RUN apt-get clean
