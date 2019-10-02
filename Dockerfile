@@ -12,6 +12,7 @@ RUN pip install keras-rl
 RUN pip install tensorflow
 RUN pip install rospkg
 RUN pip install gym
+RUN pip install opencv-contrib-python
 RUN apt-get clean
 
 RUN useradd -ms /bin/bash ${user}
