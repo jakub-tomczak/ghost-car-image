@@ -22,3 +22,4 @@ USER ${user}
 WORKDIR /home/${user}
 
 RUN /bin/bash -c "source /opt/ros/melodic/setup.bash"
+CMD [ -d ghost-racer ]; cd ghost-racer && ./run.sh || echo "ghost-racer root dir not found"
