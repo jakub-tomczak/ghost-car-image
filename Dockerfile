@@ -1,6 +1,7 @@
 FROM osrf/ros:melodic-desktop-full-bionic
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV NO_AT_BRIDGE=1
 ENV user=ghost
 
 RUN apt-get update
